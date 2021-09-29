@@ -1,0 +1,89 @@
+# BaseDeDatos
+...
+1) una base de datos esta compuesta por tablas, las cuales estan compuestas por columnas.
+estas columnas almacenan datos que nosotros ingresamos ya sea con la creación o con "alter table"
+
+2)una tabla esta compuesta por columnas, en ellas se pueden poner datos 
+un ejemplo:
+
++------+--------+
+| edad | nombre |
++------+--------+
+|   19 | juan   |
++------+--------+
+
+3) una base de datos se crea con el comando "create dabatase (nombre)" ej:
+create database personas; (para usarla tenemos que ingresar "use (nombre)" ej: use personas)
+
+4) para nombres se usa VARCHAR(50) donde "VAR" significa variable "CHAR" significa que almacena datos tipo char y "50" es la cantidad de caracteres que se utilizan coom maximo.
+
+para numeros se usa INT lo cual nos dice que es una variable de tipo entera.(todos los numeros que no tienen coma).
+
+5)una tabla se crea con "create table" y el nombre de la tabla ej: create table personas;
+// se crea la tabla personas.
+cada parte de la consulta significa lo leido anterirormente:
+
+VARCHAR(50) donde "VAR" significa variable "CHAR" significa que almacena datos tipo char y "50" es la cantidad de caracteres que se utilizan coom maximo.
+
+INT lo cual nos dice que es una variable de tipo entera.(todos los numeros que no tienen coma).
+
+el nombre de la tabla no afecta, podemos poner create table personas o persona, lo importante de esto es la interpretación lo cual nos dice que si es en singular (sin "s") que va a ser una tabla que contenga un dato. esto puede molestar a la hora de interpretar la consigna por lo cual es recomendable poner un nombre significativo. como a las variables a las cuales le ponemos noombres que se asemejen a lo que almacenan ej: 
+
+si la variable contiene datos de nombres no lo vamos a llamar "nashe", a menos que sea a interpretación propia. los bocetos de los codigos pueden tener cualquier nombre pero si lo dejamos por un tiempo va a ser mas complicado entender que "nashe" es nombres
+
+6) para ingresar datos en una tabla tenemos que crear la tabla,
+
+create database personas;
+use personas;
+create table personas (nombre varchar(50), edad int);
+ // se crea la tabla con sus respertivas columnas.
+insert into personas (nombre,edad) values ("juan",10);
+ // se define que datos vamos a ingresar y a continuación escribimos los datos (tiene que estar en orden)
+ 
+7)para ver los datos ingresados se usa el comando: SELECT * FROM (tabla) ej: SELECT * FROM personas. saldria algo asi:
+
++------+--------+
+| edad | nombre |
++------+--------+
+|   19 | juan   |
++------+--------+
+
+8) 
+A) se usa: update (nombre de la tabla) set (nombre de la columna) = (valor que queremos) where (lugar donde cambiar). 
+
+ej de las 2 opciones:
+
+update personas set nombre = favio where nombre = anacleto;
+update personas set nombre = favio where dni = 14235234;
+
+B)se usa la misma consulta.
+
+ej:
+
+update personas set nombre = pablo where nombre = anacleto;
+update personas set nombre = pablo where edad = 80;
+update personas set nombre = pablo where nombre = anacleto && edad = 80;
+update personas set nombre = pablo where edad = 80 && nombre = anacleto;
+
+C) se usa: update personas set direccion = (direccion que queramos ingresar) where apellido = equis;
+
+D) se usa: delete from personas where apellido = gamboa;
+
+E) se usa: select from personas where edad >= 18; (tomando en cuenta que ser mayor de edad es tener 18 años)
+
+F) se usa: select from personas where edad >= 18 and nombre = roberto; 
+
+G) se usa: select from personas nombre where apellido = equis;
+
+H) se usa: select from personas edad where apellido = equis;
+
+I) se usa: select * from personas where edad <= 17 and apellido = equis;
+
+extra:
+
+una columna se agrega con el comando:
+
+se usa: alter table (nombre de la tabla) add (nombre de la columna) VARCHAR(50) o INT;
+ej:
+
+alter table personas add automovil varchar(50);
